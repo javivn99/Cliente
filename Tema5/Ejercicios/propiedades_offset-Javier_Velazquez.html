@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            top: 50px;
+            margin: 10px;
+            width: 20%;
+            height: 300px;
+            text-align: center;
+            position: relative;
+            border: 5px solid black;
+            padding: 15px
+        }
+    </style>
+</head>
+<body>
+     
+    <h1>Propiedades offsetHeight, offsetWidth, offsetLeft, offsetTop y offsetParent</h1>
+       
+        <div id="test">
+            <p>Pulsa el boton para comprobar las propiedades del div.</p>
+            <p><button onclick="mostarPropiedades()">Pulsa aqui</button></p>
+            <!--
+            <p>offsetHeight es: <span id="demo"></span></p>
+            <p>offsetWidth es: <span id="demo1"></span></p>
+            <p>offsetLeft es: <span id="demo2"></span></p>
+            <p>offsetParent es: <span id="demo3"></span></p>
+            <p>offsetTop es: <span id="demo4"></span></p>
+            -->
+          </div>
+          
+          <script>
+          function mostarPropiedades() {
+            var testDiv = document.getElementById("test");
+            /*
+            document.getElementById("demo").innerHTML = testDiv.offsetHeight;
+            document.getElementById("demo1").innerHTML = testDiv.offsetWidth;
+            document.getElementById("demo2").innerHTML = testDiv.offsetLeft;
+            document.getElementById("demo3").innerHTML = testDiv.offsetParent;
+            document.getElementById("demo4").innerHTML = testDiv.offsetTop;
+            */
+
+            var c = "";
+				c += "Propiedades del div"
+				c += "\nEl alto del div (offsetHeight) es --> " + testDiv.offsetHeight;
+				c += "\nEl ancho del div (offsetWidth) es --> " + testDiv.offsetWidth;
+				c += "\nEl nº de pixeles que hay a la izquierda del div (offsetLeft) es --> " + testDiv.offsetLeft;
+                c += "\nLa distancia del div al borde superior (offsetTop) es --> " + testDiv.offsetTop;
+				c += "\nEl elemento padre del div (offsetParent) es --> " + testDiv.offsetParent;
+				alert(c);
+          }
+
+          </script>
+</body>
+</html>

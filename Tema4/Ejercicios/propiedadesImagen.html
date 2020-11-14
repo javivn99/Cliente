@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsar en una imagen y que nos de sus caracteristicas</title>
+</head>
+
+<script>
+
+    function pulsarImagen() {
+        for (i=0; i<document.images.length;i++){
+            c="Fichero: " +document.images[i].src;
+            c+="\nAltura: "+document.images[i].height;
+            c+="\Anchura: "+document.images[i].width;
+            c+="\Borde: "+document.images[i].border;
+            c+="\Name: "+document.images[i].name;
+            window.alert(c);
+        }
+    }
+</script>
+<body>
+    <img src="img1.jpg" name="i1" onclick="pulsarImagen" width="500px" height="400px">
+    <img src="img2.jpg" name="i1" onclick="pulsarImagen" width="500px" height="400px">
+</body>
+</html>

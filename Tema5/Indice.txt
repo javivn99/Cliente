@@ -1,0 +1,52 @@
+1.	Creación de objetos: createElement, createTextNode, createAttribute, createComment
+2.	getElementById
+3.	getElementsByClassName, getElementsByName, getElementsByTagName
+4.	Ejercicio: Obtener la etiqueta que aparece más veces
+5.	children, firstElementChild, lastElementChild, childElementCount
+6.	childNodes, firstChild, lastChild
+7.	nextSibling, nextElementSibling
+8.	previousSibling, previousElementSibling
+9.	Ejercicio: Cambiar el párrafo anterior y siguientes con el contenido del párrafo sobre el que se hace click
+10.	parentNode, parentElement
+11.	nodeType, nodeName, nodeValue
+12.	nodeType, nodeName, nodeValue
+13.	innerHTML, innerText
+14.	id
+15.	style
+16.	className
+17.	classList
+18.	Ejercicio: Añadir al párrafo final las clases de los párrafos sobre los que se hace click
+19.	Ejercicio: Añadir al párrafo final las clases de los párrafos sobre los que se hace click y quitar las clases si ya la tenían asignada
+20.	contentEditable, isContentEditable
+21.	clientHeight, clientWidth, clientTop, clientLeft
+22.	offsetHeight, offsetWidth, offsetTop, offsetLeft, offsetParent
+23.	ownerDocument
+24.	HTMLCollection
+25.	NodeList
+26.	Objeto Node
+27.	Objeto Node
+28.	Ejercicio: Desordenar unos párrafo aleatoriamente
+29.	Ejercicio: A partir de una página con varios párrafos se pide vaciar todos menos el primero y que el primero contenga el texto de todos separados por un salto de línea
+30.	Ejercicio: A partir de una página con varios párrafos se pide hacer click con el ratón en uno de ellos y que este último contenga el texto de todos separados por un salto de línea en el mismo orden en el que aparecen inicialmente
+31.	hasChildNodes, appendChild, insertBefore
+32.	contains, cloneNode
+33.	Clonar el parrafo con un ID específico y comprobar ID de los elementos clonados
+34.	Comprobar si se clonan los eventos
+35.	 
+36.	replaceChild, removeChild
+37.	 
+38.	
+39.	
+40.	
+41.	
+42.	insertAdjacentElement
+43.	insertAdjacentHTML
+44.	insertAdjacentText
+45.	isSameNode, isEqualNode
+46.	compareDocumentPosition
+47.	normalize
+48.	querySelector
+49.	querySelectorAll
+50.	hasAttributes, hasAttribute
+51.	getAttribute, getAttributeNode
+52.	setAttribute, setAttributeNode

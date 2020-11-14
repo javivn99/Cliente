@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Desordenar parrafos</h1>
+    <hr>
+
+    <p>Primer parrafo</p>
+    <p>Segundo parrafo</p>
+    <p>Tercer parrafo</p>
+    <p>Cuarto parrafo</p>
+    <p>Quinto parrafo</p>
+    <p>Sexto parrafo</p>
+    <p>Septimo parrafo</p>
+    <p>Octavo parrafo</p>
+    <p>Noveno parrafo</p>
+    <p>Decimo parrafo</p>
+
+    <button onclick="desordenar();">Pulsa para desordenar</button>
+
+    <script>
+        /*
+        Poner 10 parrafos y un boton. Al pulsar el boton hay que desordenar esos parrafos. DOM 28.
+        Poner id's aleatorios como accion al pulsar el boton y que eso lo desordene.
+        */
+
+        function desordenar() {
+            var parrafo = document.children[0].children[1].children[2];
+            alert(parrafo.innerHTML);
+        }
+    </script>
+</body>
+</html>

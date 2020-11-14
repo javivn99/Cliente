@@ -1,0 +1,23 @@
+1.	Notación punto y corchetes
+2.	Recorrer un objeto
+3.	Notación literal
+4.	Función constructora
+5.	Eliminación de propiedades
+6.	Comparar objetos directamente
+7.	Métodos
+8.	Construir 8 objetos coche para simular una carrera
+9.	Propiedades enumerables y no enumerables (defineProperty y defineProperties)
+10.	GETTER y SETTER. Accessor properties
+11.	Propiedades de sólo lectura
+12.	Propiedades configurables
+13.	Objetos extensibles: isExtensible y preventExtensions
+14.	Objetos sellados: isSealed y seal
+15.	Objetos congelados: isFrozen y freeze
+16.	getOwnPropertyDescriptor y getOwnPropertyDescriptors
+17.	Assign
+18.	Call
+19.	teradores: creación manual de un objeto iterador
+20.	Iteradores: Iterador que recibe una lista
+21.	Generadores: Básico
+22.	Varias expresiones yield en una función generadora
+23.	Función generadora que devuelve otra función generadora

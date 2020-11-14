@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p onclick="cambiarParrafo(this)">Primer parrafo</p>
+    <p onclick="cambiarParrafo(this)">Segundo parrafo</p>
+    <p onclick="cambiarParrafo(this)">Tercer parrafo</p>
+    <p onclick="cambiarParrafo(this)">Cuarto parrafo</p>
+    <p onclick="cambiarParrafo(this)">Quinto parrafo</p>
+    <p onclick="cambiarParrafo(this)">Sexto parrafo</p>
+
+    <script>
+        //Hacer que al pulsar sobre un <p>, los que esten arriba y abajo de el se pongan con el mismo texto. Dom_09
+        function cambiarParrafo(parrafo) {
+           nodoAnt = parrafo.previousElementSibling;
+           nodoSig = parrafo.nextElementSibling;
+
+           if(nodoAnt!=null && parrafo.tagName==nodoAnt.tagName) {
+               nodoAnt.textContent = parrafo.textContent;
+           }
+
+           if(nodoSig!=null && parrafo.tagName==nodoSig.tagName) {
+               nodoSig.textContent = parrafo.textContent;
+           }
+        }
+
+    </script>
+</body>
+</html>

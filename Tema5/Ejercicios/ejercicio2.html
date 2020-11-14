@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .claseAzul {
+            color: blue;
+        }
+
+        .claseArial {
+            font-family: arial;
+        }
+
+        .claseSize {
+            font-size: 30px;
+        }
+
+        .claseSubrayado {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <p class="claseAzul" onclick="ponerClase(this);">Primer parrafo</p>
+    <p class="claseArial" onclick="ponerClase(this);">Segundo parrafo</p>
+    <p class="claseSize" onclick="ponerClase(this);">Tercer parrafo</p>
+    <p class="claseSubrayado" onclick="ponerClase(this);">Cuarto parrafo</p>
+    <hr>
+    <div id="contenedor">Parrafo a modificar</div>
+    <button onclick="quitarClase(this);">Quitar clases</button>
+    <script>
+        //Add y remove. Hacerlo mirando los ultimos dom que ha subido.
+        //Ejercicio: Si pulsas en un parrafo se aplica al ultimo parrafo el estilo que tenga el parrafo sobre el que has pulsado.
+        function ponerClase(actual){
+            document.getElementById('contenedor').className += " " + actual.className;
+        }
+
+        function quitarClase(actual) {
+            document.getElementById('contenedor').className = actual;
+        }
+    </script>
+</body>
+</html>

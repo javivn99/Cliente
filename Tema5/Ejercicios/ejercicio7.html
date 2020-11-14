@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Aumenta o disminuye el tamaño del parrafo con los botones</h1>
+    <hr>
+    <button onclick="aumentar();">Aumentar</button>
+    <button onclick="disminuir();">Disminuir</button>
+    <hr>
+    <p id="parrafo" style="font-size: 18px;">Parrafo de prueba</p>
+    <script>
+        /*
+        Mostrar un parrafo y dos botones y aumentar o disminuir el tamaño de un parrrafo con ellos
+        */
+       function aumentar() {
+            var parrafo = document.getElementById("parrafo").textContent;
+            var font_size = parrafo.getAttribute("font-size");
+            parrafo.setAttribute("font-size", (font_size*1.1));
+       }
+
+       function disminuir() {
+        var parrafo = document.getElementById("parrafo");
+            var font_size = parrafo.getAttribute("font-size");
+            parrafo.setAttribute("font-size", (font_size*0.9));
+       }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+1.	Método parse: convertir JSON en objeto
+2.	Método stringify: pasar un objeto a texto JSON
+3.	Contenido de un JSON
+4.	Crear un método que imprima todos los elementos de un JSON, incluidos los anidados
+5.	Funciones reviver
+6.	Evaluar funciones con JSON
+7.	Fechas en los JSON
+8.	Cadenas como arrays son JSON
+9.	Eliminar de un JSON
+10.	Ejercicio: pasar a mayúsculas un JSON
+11.	Ejercicio: Cambiar el año de una fecha (++ o --) dependiendo si el día es par o impar.
+12.	Ejercicio: ordenar un JSON por las fechas de nacimiento
+13.	Propiedades no enumerables con stringify no son tenidas en cuenta
+14.	Parámetro de reemplazo con stringify: array
+15.	Stringify, parámetro de reemplazo: funcion
+16.	Stringify, parámetro space
+17. Ejercicio Prueba Examen

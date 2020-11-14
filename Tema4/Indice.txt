@@ -1,0 +1,17 @@
+1.	Objeto Window: Propiedades
+2.	Objeto Window: self, parent, top, frames, frameElement
+3.	Objeto Window: Ventanas emergentes (alert, prompt y confirm)
+4.	Objeto Window: open, resizeTo, resizeBy, moveTo, moveBy, print
+5.	Objeto Window: temporizadores (ejemplo de reloj)
+6.	Objeto Document: anchors, images, forms, links, scripts, embeds
+7.	Ejercicio: Girar los enlaces manualmente y con un intervalo de tiempo
+8.	Imágenes del documento: document.images
+9.	Ejercicio: Agrandar, disminuir, alternar y cambiar borde de imágenes
+10.	Objeto Document: Propiedades
+11. Objeto Screen
+12. Objeto Navigator
+13. Objeto Location
+14. Objeto History
+15. Ejercicio: Cada 5 segundos se deben cargar los enlaces en otra ventana (la misma para todos)
+16. Ejercicio: Abrir una ventana en 10 segundos pero en ese tiempo se puede cancelar la apertura
+17. Ejercicio: Cambiar imágenes simulando gif animado

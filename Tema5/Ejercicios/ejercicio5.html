@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hacer clic sobre un parrafo y clonarlo para insertarlo alternativamente al prinicipio y al final de los parrafos</h1>
+    <hr>
+    <p class="p1" onclick="clonar(this);">Primer parrafo</p>
+    <p class="p2" onclick="clonar(this);">Segundo parrafo</p>
+    <p class="p3" onclick="clonar(this);">Tercer parrafo</p>
+    <script>
+        /*
+        Hacer clic sobre un parrafo y clonarlo para insertarlo alternativamente al prinicipio y al final de los parrafos
+        DOM_35
+        */
+        function clonar(parrafo) {
+            nodo1 = document.getElementsByClassName("p1");
+            nodoC = parrafo.cloneNode(true);
+
+        }
+
+    </script>
+</body>
+</html>
