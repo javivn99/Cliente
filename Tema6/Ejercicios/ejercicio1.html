@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Nacionalidad <br>
+        <select name="precio">
+            <Option value="esp">Española</option>
+            <Option value="rum">Rumana</option>
+            <Option value="bul" selected>Bulgara</option>
+            <Option value="and">Andorrana</option>
+    </select>
+    </form>
+    <br>
+
+    <button onclick="insertar();">Insertar</button><input type="text" name="cajaInsertar" value=""></input><br><br>
+
+    <!--Elimina la que selecciones y si no seleccionas ninguna eliminar la ultima-->
+    <button onclick="borrar();">Eliminar</button><br>
+
+    <input type='checkbox' value="esp">Española<br> 
+    <input type='checkbox' value="rum">Rumana<br> 
+    <input type='checkbox' value="bul">Bulgara<br> 
+    <input type='checkbox' value="and">Andorrana<br> 
+
+    <script>
+        /*  HACER BOTONES QUE AÑADAN LA NACIONALIDAD QUE ESCRIBAS O ELIMINES LA QUE SELECCIONES  */
+        function insertar() {
+            añadir =  document.createElement("option");
+            elemento = document.getElementsByName("cajaInsertar").value;
+        }
+
+        function borrar() {
+
+        }
+    </script>
+</body>
+</html>
