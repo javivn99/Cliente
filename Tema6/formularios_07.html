@@ -37,15 +37,15 @@
 				var listaCampos = JSON.parse(datos);
 				var formulario = document.getElementById("formulario");
 				var elemento,opcion;
-
+				//La x es el id, name... y la y su valor por asi decir
 				listaCampos.campos.forEach(x => {
 					
 					if(x.type == "text" || x.type=="password" || x.type=="checkbox") {
-						formulario.appendChild(document.createTextNode(x.name.toUpperCase()));
-						formulario.appendChild(document.createElement("br"));
-						elemento = document.createElement("input");
-						Object.keys(x).forEach(y => elemento.setAttribute(y,x[y]));
-						formulario.appendChild(elemento);
+						formulario.appendChild(document.createTextNode(x.name.toUpperCase())); //Aqui saca el valor de atributo name y lo pone en mayusculas
+						formulario.appendChild(document.createElement("br")); //Crea un <br>
+						elemento = document.createElement("input"); //Crea el input
+						Object.keys(x).forEach(y => elemento.setAttribute(y,x[y])); //Cambia el valor de y=nombre por ej, pasa a ser y=id:nombre
+						formulario.appendChild(elemento); //Añade los alementos al formulario
 					}
 
 					if(x.type == "textarea") {
