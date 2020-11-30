@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrastar y soltar bidireccional</title>
+    <style>
+        #primero {
+            float: left;
+            border: 2px solid red;
+            width: 200px;
+            height: 200px;
+        }
+        #segundo {
+            float: left;
+            margin-left: 200px;
+            border: 2px solid blue;
+            width: 200px;
+            height: 200px;
+        }
+
+        span {
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrastra y suelta: Alternar entre ambos cuadros algo (bidireccional)</h1>
+
+    <div id="primero">
+        <span draggable="true" ondragstart="drag(event)">Mueveme</span>
+    </div>
+
+    <div id="segundo" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    </div>
+
+  
+    <script>
+        function allowDrop(ev) {
+        ev.preventDefault();
+        }
+
+        function drag(ev) {
+        ev.dataTransfer.setData("", ev.target.id);
+        }
+
+        function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("");
+        ev.target.appendChild(document.getElementById(data));
+        }
+
+    </script>
+
+</body>
+</html>
