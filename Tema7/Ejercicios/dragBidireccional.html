@@ -27,25 +27,27 @@
 <body>
     <h1>Arrastra y suelta: Alternar entre ambos cuadros algo (bidireccional)</h1>
 
-    <div id="primero">
-        <span draggable="true" ondragstart="drag(event)">Mueveme</span>
+    <div id="primero" ondragover="fase2(event);" ondrop="fase3(event);"> <!-- SIEMPRE PONER (EVENT) DENTRO. ES COMO FUNCIONA-->
+        <span id="texto" draggable="true" ondragstart="fase1(event);">Mueveme</span>
     </div>
 
-    <div id="segundo" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id="segundo" ondragover="fase2(event);" ondrop="fase3(event);">
 
     </div>
 
   
     <script>
-        function allowDrop(ev) {
-        ev.preventDefault();
-        }
-
-        function drag(ev) {
+        //Ej 25
+        function fase1(ev) {
         ev.dataTransfer.setData("", ev.target.id);
         }
 
-        function drop(ev) {
+        function fase2(ev) {
+        ev.preventDefault();
+        }
+
+
+        function fase3(ev) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("");
         ev.target.appendChild(document.getElementById(data));
