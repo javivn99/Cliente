@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table tr td {
+            border: 1px solid black;
+            
+        }
+        form {
+            border: 1px solid black;
+            padding: 20px;
+            width: 25%;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-    
+    <table>
+        <tbody id="tabla">
+            <tr><td id="nombre" draggable="true"  ondragstart="fase1(event);">Nombre</td><td id="telefono" draggable="true"  ondragstart="fase1(event);">Telefono</td>
+                <td id="matricula" draggable="true"  ondragstart="fase1(event);">Matricula</td><td id="puntuacion" draggable="true"  ondragstart="fase1(event);">Puntuacion</td></tr>
+        </tbody>
+    </table>
 
-
+    <form id="formulario" ondragover="fase2(event);" ondrop="fase3(event);">
+        Introduce el campo: <span id="span"></span><br>
+        <input type="text">
+        <br><br>
+        <button>Validar</button>
+    </form>
     <script>
         //Validad formulario seleccionando nombre, tlf, matricula ylo otro
         //Arrastras y se añade ese texto al de introduce.
+        function fase1(ev) {
+        ev.dataTransfer.setData("", ev.target.id);
+        }
 
-        
+        function fase2(ev) {
+        ev.preventDefault();
+        }
+
+        function fase3(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("");
+        document.getElementById("span").innerHTML=data;
+        }
     </script>
 </body>
 </html>
