@@ -15,8 +15,9 @@
 
 			document.getElementById("texto").addEventListener("keypress",function (e) {
 				console.log(e.keyCode);
+				//0-->48, 1-->49,...
 				if(!(e.keyCode >= 48 && e.keyCode <= 57)) {
-					e.preventDefault();
+					e.preventDefault(); //Quita la accion por defecto de la caja de texto. No introduce nada.
 				}
 			});
 			
