@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Javier Velazquez</title>
+    <style>
+        .no {
+            border: 2px solid black;
+        }
+
+        .si {
+            border: 2px dotted red;
+        }
+
+        div {
+            padding: 1cm;
+            margin: 0.5cm;
+            width: 25%;
+        }
+
+        #obligatorio {
+            font-size: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Examen 2 - Javier Velazquez</h1>
+    <hr>
+    <span draggable="true" id="obligatorio" ondragstart="fase1(event);">OBLIGATORIO</span>
+
+    <div class="no" draggable="true" id="cuadrodni" ondragover="fase2(event);" ondrop="fase3(event);">
+        DNI <br>
+        <input type="text" id="dni" value=""/>
+    </div>
+    <div class="no" draggable="true" id="cuadronombre" ondragover="fase2(event);" ondrop="fase3(event);">
+        Nombre <br>
+        <input type="text" id="nombre" value=""/>
+    </div>
+    <div class="no" draggable="true" id="cuadrotelefono" ondragover="fase2(event);" ondrop="fase3(event);">
+        Telefono <br>
+        <input type="text" id="telefono" value=""/>
+    </div>
+
+    <button onclick="crearTabla();">Almacenar</button>
+
+    <br><br>
+
+    <table>
+        <tbody id="tabla"></tbody>
+    </table>
+
+    <script type="text/javascript">
+    //SCRIPT MOVER "OBLIGATORIO" A LOS CUADROS
+        //FASE 1
+        function fase1(ev) {
+        ev.dataTransfer.setData("", ev.target.id);
+        }
+
+        //FASE 2
+        function fase2(ev) {
+        ev.preventDefault();
+        }
+
+        //FASE 3
+        function fase3(ev) {
+            var data = ev.dataTransfer.getData("");
+            ev.target.appendChild(document.getElementById(data));
+
+        }
+
+    //SACAR LA TABLA AL PULSAR EL BOTON
+        function crearTabla() {
+            var tabla = document.getElementById("tabla");
+            filas = document.getElementsByTagName("input").value;
+            tr = document.createElement("tr");
+            td = document.createElement("td").value("DNI");
+            td = document.createElement("td").value("Nombre");
+            td = document.createElement("td").value("Telefono");
+        }
+    </script>
+</body>
+</html>
