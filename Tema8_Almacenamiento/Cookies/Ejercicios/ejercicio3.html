@@ -1,0 +1,69 @@
+<!--HACER COOKIE DE USUARIO-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="iniciarCampo();">
+    <h1>Datos de usuario</h1>
+    Usuario<br><input id="usuario" type="text" name="usuario"><br><br>
+    Contraseña<br><input id="contraseña" type="password" name="contraseña">
+    <br><br>
+    Recordar<input type="checkbox" id="checkbox">
+    <br><br>
+    <button id="boton" onclick="añadirCookies();">Iniciar</button>
+
+    <script>
+        //Leer cookie
+        function leerCookie(clave) {
+            var resultado = "";
+            var busqueda = clave + "=";
+
+            var listCookies = document.cookie.split(';');
+            var par = "";
+
+            for(var i = 0; i <listCookies.length; i++) {
+                par = listCookies[i]; //Cada elemento del array de cookies: nombre de la cookie y carácter =
+
+                //Se quitan los espacios en blanco 
+                while (par.charAt(0)==' ') {
+                    par = par.substring(1);
+                }
+
+                //Se compara los que buscamos con el elemento del array. Si devuelve como índice 0 se ha encontrado
+                if (par.indexOf(busqueda) == 0) {
+                    resultado = par.substring(busqueda.length,par.length);
+                }
+            }
+            return resultado;
+        }
+
+
+        function añadirCookies() {
+            var cookieUsuario = leerCookie("usuario");
+            u = document.getElementById("usuario").value;
+            c = document.getElementById("contraseña").value;
+            if (cookieUsuario=""){
+                if ((u=="javi" && c=="1234") || (u=="admin" && c=="admin") && document.getElementById("checkbox").cheked){
+                    añadirCookie();
+                    alert("Usuario correcto");
+                } else {
+                    alert("Usuario o contraseña incorrectos");
+                }
+            }
+        }
+
+        function añadirCookie(){
+            var miCookie = "";
+            var valor = document.getElementById("usuario").value;
+            var fecha = new Date();
+            fecha.setTime(fecha.getTime() + (5*1000*60*60*24));
+            var expires = "expires=" +fecha.toUTCString();
+            miCookie = "usuario" + "=" +valor + ";" +expires; //PERMANENTE
+            document.cookie = miCookie;
+        }
+    </script>
+</body>
+</html>
