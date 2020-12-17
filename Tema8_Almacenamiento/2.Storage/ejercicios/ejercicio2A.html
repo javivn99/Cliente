@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nombre<br><br><input type="text" id="clave">
+    <br><br>Valor<br><br><input type="text" id="valor">
+    <br><br>
+    <button onclick="añadir();">Añadir</button>
+    <br>
+    <span id="parrafo"></span>
+
+    <script>
+        //EJ4A. -> SI AÑADO UNA ME SALE EL TEXTO EN LA B Y VICEVERSA. Y SI ELIMINO ALGO DESDE EL NAVEGADOR APARECE EN LAS 2
+        window.addEventListener("storage",function() {
+            document.getElementById("parrafo").innerHTML = "<h2>Se ha modificado el almacenamiento</h2>"
+        })
+        function añadir() {
+            var c = document.getElementById("clave").value;
+            var v = document.getElementById("valor").value;
+            localStorage.setItem(c,v);
+        }
+    </script>
+</body>
+</html>

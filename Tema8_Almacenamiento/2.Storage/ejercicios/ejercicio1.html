@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nombre<br><br><input type="text" id="clave">
+    <br><br>Valor<br><br><input type="text" id="valor">
+    <br><br>
+    <button onclick="añadir();">Añadir</button>
+    <button onclick="mostrar();">Mostrar</button>
+    <button onclick="añadirSinEscribir();">Modificar</button>
+
+    <script>
+        function añadir() {
+            var c = document.getElementById("clave").value; //Leo la clave
+            var v = document.getElementById("valor").value; //Leo el valor
+            localStorage.setItem(c,v); //Añadir la clave,valor
+        }
+
+        function mostrar(){
+            var c = document.getElementById("clave").value;
+            alert(localStorage.getItem(c));
+        }
+
+        function añadirSinEscribir() {
+            localStorage.pueblo = "Medina"; //Clave=Pueblo - Value=Medina
+            localStorage["color"] = "rojo"; //Clave=Color - Value=Rojo
+            alert(localStorage.pueblo + " - " +localStorage["color"]); //La forma de llamar a ambas
+        }
+    </script>
+</body>
+</html>
