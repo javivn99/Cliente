@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pasar cookies a local storage y al reves</h1>
+    <hr>
+    <button>Ver cookies</button>
+    <button>Ver localStorage</button><br><br>
+    <button onclick="cookiesToStorage();">Pasar Cookies a localStorage</button>
+    <button>Pasar localStorage a Cookies</button>
+    <hr>
+
+    <script>
+
+        function cookiesToStorage() {
+            window.addEventListener("storage",function (){
+				document.getElementById("parrafo").innerHTML = "<h2>Se ha modificado el almacenamiento</h2>";
+			});
+	
+			function ponerValor() {
+				var c = document.getElementById("clave").value;
+				var v = document.getElementById("valor").value;
+				localStorage.setItem(c,v);
+			}
+        }
+    </script>
+</body>
+</html>
