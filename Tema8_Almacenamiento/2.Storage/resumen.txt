@@ -1,0 +1,11 @@
+Resumen de Storage
+    -setItem(c,v) -> Añadir c
+     getItem(c) -> Leer c
+    -removeItem(c) -> Eliminar c
+    -clear() -> Eliminar todas
+    -Key(i) -> Recorrerlo sin saber la clave
+
+    Con eventos:
+    -Key
+    -oldValue
+    -newValue
