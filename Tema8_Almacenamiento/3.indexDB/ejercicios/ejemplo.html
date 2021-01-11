@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="crear();">Crear</button>
+
+    <script>
+        //Crear un bdd de la forma mas sencilla
+
+        var peticion;
+
+        function crear(){
+            var nombre = "Coches";
+
+            if(window.indexedDB){
+                peticion = window.indexedDB.open(nombre);
+            }
+            
+            /*
+            peticion.onsuccess() = function(evento){
+                console.log("EVENTO: success. \nSe ha abierto correctamente la BD: ".nombre);
+            }*/
+        }
+    </script>
+</body>
+</html>
