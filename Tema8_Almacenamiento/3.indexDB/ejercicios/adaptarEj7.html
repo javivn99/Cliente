@@ -1,0 +1,114 @@
+<!--
+    Practica para adaptar el ej7 a loo que seria mi bdd de la practica final
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Crear indices de mis almacenes(tablas)</h1>
+    <h2>No debe estar creada la base de datos</h2>
+    <h2>Ver consola</h2>
+    <hr />
+
+    <button onclick="crearIndicesBD();">Crear índices en los almacenes</button>
+
+    <br /><br />
+
+    <textarea id="info" cols="120" rows="20"></textarea>
+
+    <script type="text/javascript">
+
+        var peticion, bd, almacenMecanicos, almacenCoches, almacenClientes;
+
+        function mensaje(texto) {
+            document.getElementById("info").value += "\n\n" + texto;
+        }
+
+        function crearIndicesBD() {
+            var peticion, bd, almacenMecanicos, almacenCoches, almacenClientes;
+
+            if (window.indexedDB) {
+                peticion = window.indexedDB.open("taller", 1);
+
+                peticion.onsuccess = function (evento) {
+                    //Escribir el código para realizar consultas, inserciones, etc...(DML)
+                    mensaje("EVENTO: success\nSe ha abierto correctamente la base de datos: " + peticion.result.name + " con versión " + peticion.result.version);
+
+                    bd = peticion.result;
+                    var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
+
+                    almacenMecanicos = transaccion.objectStore("mecanicos");
+                    almacenMecanicos.put({ dni: "12376875A", nombre: "Ana", edad: 34, localidad: "Valladolid" });
+                    almacenMecanicos.put({ dni: "52614576R", nombre: "José", edad: 25, localidad: "Madrid" });
+                    almacenMecanicos.put({ dni: "38834565Q", nombre: "Marta", edad: 31, localidad: "Zamora" });
+                    almacenMecanicos.put({ dni: "85332346E", nombre: "Luis", edad: 23, localidad: "Orense" });
+
+                    almacenClientes = transaccion.objectStore("clientes");
+                    almacenClientes.put({dni:"93956772U",nombre:"Lucía",edad:28,localidad:"Huesca"});
+                    almacenClientes.put({dni:"48666206H",nombre:"Fernando",edad:48,localidad:"Ávila"});
+                    almacenClientes.put({dni:"12223867A",nombre:"Lorenzo",edad:41,localidad:"Guadalajara"});
+                    almacenClientes.put({dni:"77124452F",nombre:"Susana",edad:39,localidad:"Cáceres"});
+                    almacenClientes.put({dni:"72545452T",nombre:"Joaquín",edad:53,localidad:"Sevilla"});
+
+                    almacenCoches = transaccion.objectStore("coches");
+                    almacenCoches.put({ matricula: "8452RTG", marca: "Opel", modelo: "Corsa", color: "negro" });
+                    almacenCoches.put({ matricula: "3962HJT", marca: "Renault", modelo: "Clio", color: "azul" });
+                    almacenCoches.put({ matricula: "2749WDS", marca: "Seat", modelo: "Ibiza", color: "blanco" });
+                    almacenCoches.put({ matricula: "6357RDF", marca: "Kia", modelo: "Stonic", color: "gris" });
+                    almacenCoches.put({ matricula: "9890RYH", marca: "Volkswagen", modelo: "Golf", color: "rojo" });
+                    almacenCoches.put({ matricula: "1231TMN", marca: "Audi", modelo: "A4", color: "azul" });
+                    almacenCoches.put({ matricula: "7623JKS", marca: "Fiat", modelo: "Punto", color: "amarillo" });
+                    almacenCoches.put({ matricula: "4587LKM", marca: "Ford", modelo: "Focus", color: "verde" });
+                    almacenCoches.put({ matricula: "4251FCD", marca: "Dacia", modelo: "Sandero", color: "marrón" });
+                    almacenCoches.put({ matricula: "5482NBH", marca: "Citroen", modelo: "C4", color: "blanco" });
+                };
+
+
+                peticion.onerror = function (evento) {
+                    alert("No se ha creado la base de datos: " + event.target.errorCode);
+                };
+
+
+                peticion.onupgradeneeded = function (evento) {
+                    //Escribir el código para crear o modificar la estructura de la BD (DDL)
+                    //Recordatorio: Este evento sólo se ejecuta si se abre la base de datos con una versión nueva superior
+
+                    mensaje("EVENTO: upgradedneeded\nSe modifica la versión o es nueva");
+                    bd = peticion.result;
+
+                    almacenMecanicos = bd.createObjectStore("mecanicos", { keyPath: "dni" });
+                    almacenClientes = bd.createObjectStore("clientes", { keyPath: "dni" });
+                    almacenCoches = bd.createObjectStore("coches", { keyPath: "matricula" });
+
+                    mensaje("SE CREAN LOS ÍNDICES");
+
+                    almacenMecanicos.createIndex("por_dni", "dni", { unique: true });
+                    almacenMecanicos.createIndex("por_nombre", "nombre");
+                    almacenMecanicos.createIndex("por_edad", "edad");
+
+                    almacenClientes.createIndex("por_dni", "dni", { unique: true });
+                    almacenClientes.createIndex("por_nombre", "nombre");
+                    almacenClientes.createIndex("por_edad", "edad");
+
+                    almacenCoches.createIndex("por_matricula", "matricula", { unique: true });
+                    almacenCoches.createIndex("por_marca", "marca");
+                    almacenCoches.createIndex("por_modelo", "modelo");
+
+
+                };
+            } else {
+                console.log("IndexedDB no está soportado");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
