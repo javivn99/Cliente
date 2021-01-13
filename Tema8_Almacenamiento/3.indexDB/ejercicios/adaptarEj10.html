@@ -1,0 +1,85 @@
+<!--
+    Hacer consultas como las del ej 10 sobre la bdd taller
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Recuperar datos de Taller: getAll (con rangos)</h1>
+    <hr />
+    <button onclick="getAllDB();">getAll</button>
+		<ul id="listaCoches"></ul>
+
+
+		<script type="text/javascript">
+
+			var peticion, bd, transaccion, almacenCoches;
+
+			function getAllDB() {
+				var peticion;				
+
+				if (window.indexedDB) {
+					peticion = window.indexedDB.open("taller");
+
+
+					peticion.onsuccess = function (evento) {
+						console.log("Success");
+
+						var bd = evento.target.result;
+						
+    					var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
+						var almacenCoches = transaccion.objectStore("coches");
+						
+						//var rango1 = IDBKeyRange.bound(1,5);
+						var rango2 = IDBKeyRange.bound(2,8,true,false);
+
+
+						//DE LAS SIGUIENTES LÍNEAS SÓLO UNA DEBE ESTAR EN BLANCO
+						//var peticionGetAll = almacenCoches.getAll(); //Todos
+						//var peticionGetAll = almacenCoches.getAll(5); //El de clave 5
+						//
+						//var peticionGetAll = almacenCoches.getAll(rango1); //El rango
+						var peticionGetAll = almacenCoches.getAll(rango2); //El rango
+						//var peticionGetAll = almacenCoches.getAll(rango2,5); //5 de ese rango
+						
+
+						peticionGetAll.onsuccess = function () {
+							var valores = peticionGetAll.result;
+
+							for(coche in valores) {
+								insertarElemento(valores[coche]);
+							}
+						}
+
+					}
+
+
+					peticion.onerror = function (evento) {
+						alert("No se ha creado la base de datos: " + event.target.errorCode);
+					};
+
+
+					peticion.onupgradeneeded = function (evento) {
+						console.log("Upgradeneeded");
+					};
+				} else {
+					console.log("IndexedDB no está soportado");
+				}
+			}
+
+
+			function insertarElemento(coche) {
+				var htmlTexto = coche.matricula + " - " + coche.marca + " - " + coche.modelo + " - " + coche.color;
+				var listaItem = document.createElement("li");
+				listaItem.textContent = htmlTexto;
+
+				document.getElementById("listaCoches").appendChild(listaItem);
+			}
+
+		</script>
+</body>
+</html>
