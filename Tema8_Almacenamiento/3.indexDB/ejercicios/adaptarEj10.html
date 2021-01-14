@@ -34,16 +34,17 @@
     					var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
 						var almacenCoches = transaccion.objectStore("coches");
 						
+						//NO funcionan los rangos en mi bdd no se por que
 						//var rango1 = IDBKeyRange.bound(1,5);
-						var rango2 = IDBKeyRange.bound(2,8,true,false);
+						//var rango2 = IDBKeyRange.bound(2,8,true,false);
 
 
 						//DE LAS SIGUIENTES LÍNEAS SÓLO UNA DEBE ESTAR EN BLANCO
-						//var peticionGetAll = almacenCoches.getAll(); //Todos
-						//var peticionGetAll = almacenCoches.getAll(5); //El de clave 5
-						//
+						var peticionGetAll = almacenCoches.getAll(); //Todos
+						//var peticionGetAll = almacenCoches.getAll("2749WDS"); //El de clave 2749WDS
+						//NO FUNCIONAN ESTAS
 						//var peticionGetAll = almacenCoches.getAll(rango1); //El rango
-						var peticionGetAll = almacenCoches.getAll(rango2); //El rango
+						//var peticionGetAll = almacenCoches.getAll(rango2); //El rango
 						//var peticionGetAll = almacenCoches.getAll(rango2,5); //5 de ese rango
 						
 
