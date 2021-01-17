@@ -51,16 +51,22 @@
 
     <main role="main">
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Album example</h1>
-          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-          </p>
+      <div class="container">
+        <div class="row">
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items" class="col-sm-8 row"></main>
+            <!-- Carrito -->
+            <aside class="col-sm-4">
+                <h2>Carrito</h2>
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total"></span>&euro;</p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </aside>
         </div>
-      </section>
+    </div>
 
       <div class="album py-5 bg-light">
         <div class="container">
@@ -91,13 +97,13 @@
                   <p class="card-text">Aceite Krafft 50w30</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary quitar-carrito" >-</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">32,85€/ud</p>
                   </div>
                 </div>
               </div>
@@ -110,12 +116,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">38,95€/ud</p>
                   </div>
                 </div>
               </div>
@@ -129,12 +135,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">28,00€/ud</p>
                   </div>
                 </div>
               </div>
@@ -147,12 +153,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">41,99€/ud</p>
                   </div>
                 </div>
               </div>
@@ -165,12 +171,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">23,87€/ud</p>
                   </div>
                 </div>
               </div>
@@ -184,12 +190,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">12,60€/ud</p>
                   </div>
                 </div>
               </div>
@@ -202,12 +208,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">14,98/ud</p>
                   </div>
                 </div>
               </div>
@@ -220,12 +226,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">12,95€/ud</p>
                   </div>
                 </div>
               </div>
@@ -238,12 +244,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">18,50€/ud</p>
                   </div>
                 </div>
               </div>
@@ -256,12 +262,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">14,20€/ud</p>
                   </div>
                 </div>
               </div>
@@ -274,12 +280,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">12,95€/ud</p>
                   </div>
                 </div>
               </div>
@@ -293,12 +299,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">73,49€/ud</p>
                   </div>
                 </div>
               </div>
@@ -311,12 +317,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">128,29€/ud</p>
                   </div>
                 </div>
               </div>
@@ -329,7 +335,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -347,7 +353,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -365,7 +371,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -383,7 +389,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -402,7 +408,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -420,7 +426,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -438,12 +444,12 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">3,80€/ud</p>
                   </div>
                 </div>
               </div>
@@ -456,7 +462,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -474,7 +480,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -492,7 +498,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -511,7 +517,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -529,7 +535,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
@@ -541,72 +547,72 @@
             </div>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="imagenes/piezas/luzTrasera1.jpg" style="height: 125px; width: 140px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+                <img class="card-img-top" src="imagenes/piezas/parasol.jpg" style="height: 125px; width: 140px; margin-left: auto; margin-right: auto;" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Luz trasera / de freno Philips</p>
+                  <p class="card-text">Parasol forrado con aluminio</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">1,16€/ud</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="imagenes/piezas/luzMAtras.jpg" style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+                <img class="card-img-top" src="imagenes/piezas/manosLibres1.jpg" style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Lampara de marcha atrás HELLA</p>
+                  <p class="card-text">LENCENT Transmisor FM Bluetooth</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">5,85€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">12,74€/ud</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="imagenes/piezas/luzIntermint1.jpg" style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+                <img class="card-img-top" src="imagenes/piezas/manosLibres2.jpg" style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Lámpara intermitente BOSCH</p>
+                  <p class="card-text">Kit manos libres AUTO-T 540328</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">1,61€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">26,56€/ud</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="imagenes/piezas/luzIntermint2.jpg" style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+                <img class="card-img-top" src="imagenes/piezas/cargador.jpg" style="height: 100px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
                 <div class="card-body">
-                  <p class="card-text">Bombillas PY21W BOSCH</p>
+                  <p class="card-text">Beikell cargador USB de Doble Puerto</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
                     </div>
                     <small class="text-muted">En Stock</small>
                   </div>
                   <div>
-                    <p style="padding-top: 10px; margin-bottom: 0;">6,95€/ud</p>
+                    <p style="padding-top: 10px; margin-bottom: 0;">6,59€/ud</p>
                   </div>
                 </div>
               </div>
@@ -633,5 +639,7 @@
     <script src="dist/js/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="dist/js/holder.min.js"></script>
+
+    
   </body>
 </html>
