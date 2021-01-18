@@ -26,7 +26,7 @@ let baseDeDatos = [
 
 ];
 
-let $items = document.querySelector('#items');
+let $items = document.getElementById("nombrePieza").value;
 let carrito = [];
 let total = 0;
 let $carrito = document.querySelector('#carrito');
@@ -154,3 +154,13 @@ $botonVaciar.addEventListener('click', vaciarCarrito);
 
 // Inicio
 renderItems();
+
+function añadirCarrito(){
+    nombre = document.getElementById("nombrePieza").value;
+
+    main = document.getElementById("items");
+
+    parrafo = document.createElement("p");
+
+    parrafo.push(nombre);
+}
