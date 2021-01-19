@@ -1,0 +1,54 @@
+𝗘𝗝𝗘𝗥𝗖𝗜𝗖𝗜𝗢 𝟭
+
+Crear un fichero JS que permita simular las finanzas de personales
+de 5 personas. Estas personas tendran en sus finanzas un saldo inicial, un sueldo mensual
+y una deuda. Estos tres valores, y el nombre del titular se estableceran en los parametros
+de la funcion constructora del objeto. La funcion constructora de cada una de estas
+5 personas podria ser de la siguiente forma:
+
+function finanzasPersonales(titular, saldo, sueldo, deuda) {...}
+
+Cada 27 de cada mes se ajustan las finanzas de tal modo que en ese dia:
+    -> Se cobra el sueldo
+    -> Se descuentan los gastos mensuales --> Un nº aleatorio entre 700 y 900
+    -> Se amortiza parte de la deuda --> Un nº aleatorio entre 100 y 400 (no nay intereses)
+
+La condicion de finalizacin de la simulacion es cuando todas las personas paguen su deuda partiendo de la fecha actual.
+El resultado final debe mostrar el titular, fecha de cancelacion de la deuda, saldo, deuda (tiene que ser 0; no valores negativos),
+los meses que ha tardado en pagarla lo que ha pagado cada mes de deuda y los gastos mensuales de cada mes.
+
+
+Crear un objeto adecuado -> 1p
+Ajustar finanzas a los 27 dias de cada mes -> 1,5p
+Simulacion correcta cumpliendo las condiciones de finalizacion -> 1,5p
+Se muestra el resultado final correctamente -> 1p
+
+
+
+
+
+𝗘𝗝𝗘𝗥𝗖𝗜𝗖𝗜𝗢 𝟮
+
+Crear un fichero JS que modifique unos datos en formato JSON (datos.json).
+El JSON consta de un array de solicitudes (15) para 3 plazas. Los campos de cada solicitud son:
+codigo, nombre, fechanac, notaExpediente, admitido, causaExclusion. Los formatos se entienden visulizando el JSON
+
+Las solicitudes al final deben estar en estado con admitido a true o a false dependiendo de diversas
+circunstancias. Una solicitud no se admite si:
+
+    -> El formato de fecha esta mal (debe ser dias-mes-año cpn 1 o 2 digitos para el dia y mes y 4 para el año)
+    -> No se trata de una persona nacida entre el año 2000 y 2005
+    -> El formato de la notaExpediente esta mal. Se deben dejar siempre dos digitos decimales 
+    -> La nota no esta entre 0 y 10
+    -> No le llega la nota atendiendo al numero de plazas ya que se asignan por nota de expediente. Solo se admitiran las 3 mejores notas.
+
+Estas condiciones de error deben indicarse en el campo causaExclusion(al menos una si se cumple mas de una condicion de error).
+El resultado final debe devolver el JSON modificado con los admitidos y las causas de exclusion. Se puede hacer un console.table
+del array para una mejor visualizacion.
+
+
+Se evalua el formato de fecha y nota y sus valores posibles correctamente -> 1p
+Se asigna correctamente el campo admitido -> 1p
+Se asigna correctamente el campo exclusion  -> 1p
+Se asigna correctamente los admitidos atendiendo al expediente -> 1.5p
+Se devuelbe el JSON modificado -> 0,5p
