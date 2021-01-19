@@ -155,12 +155,28 @@ $botonVaciar.addEventListener('click', vaciarCarrito);
 // Inicio
 renderItems();
 
-function añadirCarrito(){
-    nombre = document.getElementById("nombrePieza").value;
 
-    main = document.getElementById("items");
 
-    parrafo = document.createElement("p");
+function insertarElementoControlLista(pieza) {
+    //var htmlTexto = libro.isbn + "  <----->  " + libro.titulo;
+    var htmlTexto = pieza.tipo;
+    var listaItem = document.createElement("p");
+    listaItem.setAttribute("value",pieza.id);
+    listaItem.textContent = htmlTexto;
 
-    parrafo.push(nombre);
+    var lista = document.getElementById("main");
+    lista.appendChild(listaItem);
+
+    listaItem.onclick = function () {
+        var id = lista.options[lista.selectedIndex].value;
+        var transaccionEvento = bd.transaction(bd.objectStoreNames, "readwrite");
+        var almacenEvento = transaccionEvento.objectStore("recambios");
+        var registroEvento = almacenEvento.get(parseInt(id));
+
+        registroEvento.onsuccess = function(evento) {
+            document.getElementById("id").value = registroEvento.result.id;
+            document.getElementById("marca").value = registroEvento.result.marca;
+            document.getElementById("tipo").value = registroEvento.result.tipo;
+        }
+    }
 }
