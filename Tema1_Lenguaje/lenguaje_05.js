@@ -33,6 +33,8 @@ let variable12 = 60; //Declaración de variables con let
 	una vez cierres corchetes si la llamas te dara error de que no esta definida en esa funcion.
 	Ejemplo visual:
 
+	var varGlobal = 1;
+
 	function ejemploFuncion() {
 	var varLocal = 2;
 
