@@ -16,8 +16,9 @@ var lista4 = Array.of("casa");
 console.log(lista4);
 
 
-var miNOmbreSalteado = Array.from("7845454");
-console.log(miNOmbreSalteado);
+//Diferencias
+var miNombreSalteado = Array.from("Javier");
+console.log(miNombreSalteado);
 
-var miNombreCompleto = Array.of("Ja654465464ier");
+var miNombreCompleto = Array.of("Javier");
 console.log(miNombreCompleto);

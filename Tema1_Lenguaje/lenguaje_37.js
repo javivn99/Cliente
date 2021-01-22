@@ -23,7 +23,7 @@ tablaA.forEach(function (elementoExterno,indiceExterno){
 //Crear un array bidimensional a partir de uno unidimensional
 var tablaB = new Array(5);
 tablaB.fill(['A','B','C']);
-console.log(tablaB);
+console.log(tablaB);  
 
 //Bidimensional a partir de dos unidimensionales
 var tablaC = Array.of([1,2,3],[3,4,5]); 

@@ -44,3 +44,7 @@ function funcion4(...ncompleto) {
 	return c;
 }
 console.log(funcion4("Jesus","Perez","Gonzalez"));
+
+/*******************************************************************************************************
+	REST SIRVE PARA ESPECIFICAR QUE SE PUEDE INTRODUCIR UNO O VARIOS VALORES, NO CUANTOS EXACTAMENTE
+********************************************************************************************************/

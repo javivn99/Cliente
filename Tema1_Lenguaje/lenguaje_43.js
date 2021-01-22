@@ -6,7 +6,8 @@ function funcionParametros(a,b,c,d) {
 	for(i=0;i<=arguments.length-1;i++) {
 		console.log(arguments[i]);
 	}
-
+	
+	//EL bucle es como poner esto
 	/*console.log(arguments[0]);
 	console.log(arguments[1]);
 	console.log(arguments[2]);
