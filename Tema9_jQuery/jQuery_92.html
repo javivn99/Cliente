@@ -79,12 +79,22 @@
 		<script>
 
 			$(document).ready(function(){
-				$("div.menu_punto").hide();
-
+				$("div.menu_punto").hide(); //Aqui hacemos que desde un principio todos esten ocultos
+				
 				$("p.menu_capitulo").click(function(){
 					$(this).next("div.menu_punto").slideDown(300).siblings("div.menu_punto").slideUp("slow");
+					/*
+					El siguiente menu_punto del p.menu_capitulo en el que clicko bajaAbajo a 300, y los hermanos de ese
+					menu punto se suben todos hacia arriba despacio
+					*/
 				});
 			});
+			/*
+			El evento ready de jQuery no espera que la página entera haya cargado. Solo espera que todo el DOM haya sido generado 
+			en la memoria de Javascript y por lo tanto esté disponible para recibir instrucciones de manipulación.
+
+			El evento equivalente en Vanilla Javascript (Javascript nativo) es DOMContentLoaded.
+			*/
 
 		</script>
 	</body>

@@ -35,7 +35,7 @@
 		<input type="button" value="Probar" onclick="probar();"/>
 
 		<script>
-
+			//noConfict() -> Renunciar al control de jQuery sobre la $variable
 			jQuery.noConflict(); //Comentar y comprobar que da error al cargar si la librería de jquery se carga después de la de prototype
 			
 			function probar() {
