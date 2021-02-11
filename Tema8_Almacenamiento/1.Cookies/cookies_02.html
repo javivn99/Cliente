@@ -16,7 +16,7 @@
 
 			function leerTodasCookies() {
 				alert(document.cookie);
-			 }
+			}
 	
 	
 			function leerCookie(clave) {
@@ -28,14 +28,14 @@
 	
 				for(var i = 0; i <listCookies.length; i++) {
 					par = listCookies[i]; //Cada elemento del array de cookies: nombre de la cookie y carácter =
-	
+					
 					//Se quitan los espacios en blanco 
-					while (par.charAt(0)==' ') {
+					while (par.charAt(0)==' ') { //Si par comienza por espacio, se coje a partir de la posicion 1 que es donde comienza el texto
 						par = par.substring(1);
 					}
 	
 					//Se compara los que buscamos con el elemento del array. Si devuelve como índice 0 se ha encontrado
-					if (par.indexOf(busqueda) == 0) {
+					if (par.indexOf(busqueda) == 0) { //Si par es igual a la busqueda
 						resultado = par.substring(busqueda.length,par.length);
 					}
 				}
