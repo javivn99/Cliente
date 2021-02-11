@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fichero C</title>
+    <script src="jquery-3.5.1.js"></script>
+</head>
+
+<body>
+    <h1>Examen3 - Parte C: Recibir datos del formulario</h1>
+    <hr />
+
+    <p id="socioInfo"></p><br>
+
+    <button id="btn_añadir" onclick="añadirDatos();">CONFIRMAR E INSERTAR EN LA BASE DE DATOS</button>
+    <br><br>
+
+    <button onclick="mostrarTabla();">VER SOCIOS DE LA BASE DE DATOS</button>
+    <br><br>
+    <table border="1px solid black" id="tabla">
+        <thead>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Identidicador</td>
+                <td>Nombre</td>
+                <td>Direccion</td>
+                <td>Sexo</td>
+                <td>Premium</td>
+            </tr>
+            <tr>
+                <td id="id">1</td>
+                <td id="nombre">Agustin</td>
+                <td id="direccion">C/Inventada</td>
+                <td id="sexo">Si por favor</td>
+                <td id="premium">No</td>
+            </tr>
+        </tbody>
+    </table>
+    <script type="text/javascript">
+
+        //var botonAdd = document.getElementById("btn_añadir").setAttribute("disabled","disabled");
+
+        //FUNCION VISUALIZAR DATOS INTRODUCIDOS EN EL FORMULARIO DEL FICHERO_B
+        window.addEventListener("storage", function (event) {
+            //botonAdd.removeAttribute("disabled");
+            var socioJSON = localStorage.getItem("socios");
+            var socio = JSON.parse(socioJSON);
+
+            var c = "";
+            c += "<br />Id: <span id='id'>" + socio.id + "</span>";
+            c += "<br />Nombre: <span id='nombre'>" + socio.nombre + "</span>";
+            c += "<br />Domicilio: <span id='direccion'>" + socio.direccion + "</span>";
+            c += "<br />Sexo: <span id='sexo'>" + socio.subjectList + "</span>";
+            c += "<br />Premium: ";
+            if (socio.premium) {
+                c += "<span id='premium'>Sí</span>";
+            } else {
+                c += "<span id='premium'>No</span>";
+            }
+
+            document.getElementById("socioInfo").innerHTML = c;
+        });
+
+        /*******************************************************/
+        //FUNCION INSERTAR DATOS RECIBIDOS AL PULSAR EL BOTON
+
+        function añadirDatos() {
+
+
+            if (window.indexedDB) {
+                request = window.indexedDB.open("examen");
+
+                request.onsuccess = function (evento) {
+                    console.log("Success");
+
+                    bd = event.target.result;
+                    transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
+
+                    almacenSocios = transaccion.objectStore("socios");
+                    /********* PUESTO POR MI ********/
+                    var socioJSON = localStorage.getItem("socios");
+                    var socio = JSON.parse(socioJSON);
+
+                    //PUT --> Añade o modifica. Si escribe un registro con clave ya existente lo sobrescribe
+                    almacenSocios.put({ id: socio.id, nombre: socio.nombre, direccion: socio.direccion, sexo: socio.subjectList, premium: socio.premium });
+
+                };
+
+                request.onerror = function (evento) {
+                    alert("No se ha creado la base de datos: " + event.target.errorCode);
+                };
+
+                request.onupgradeneeded = function (evento) {
+                    console.log("Upgradeneeded");
+                };
+            } else {
+                console.log("IndexedDB no está soportado");
+            }
+
+        }
+
+        /*** FUNCION MOSTRAR LA TABLA (NO FUNCIONA)***/
+        function mostrarTabla() {
+            $(function () {
+                $("table").css({ visibility: "visible" });
+            });
+
+            var socioJSON = localStorage.getItem("socios");
+            var socio = JSON.parse(socioJSON);
+
+
+        }
+
+
+        /*** FUNCION HABILITAR JQUERY ***/
+
+        /*BACKGROUND YELLOW (NO FUNCIONA BIEN)*/
+        $(function () {
+            $("td").click(function (evento) {
+                $("td").css("backgroundColor", "yellow");
+            });
+        });
+
+        /*ELIMINAR FILA(NO FUNCIONA)
+        $(function (){
+                $("#id").click(function(event) {
+                    $("td").remove();
+                });
+
+            });*/
+
+
+
+    </script>
+</body>
+
+</html>

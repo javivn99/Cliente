@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fichero B</title>
+</head>
+<body>
+    <h1>Examen3 - Parte B: Enviar datos del formulario</h1>
+    <hr>
+    <form>
+        Identificador<input id="id" type="number" required="required"><br><br>
+        Nombre<input id="nombre" type="text" required="required"><br><br>
+        Direccion<input id="direccion" type="text" required="required"><br><br>
+        <select id="sexo" size="2" required="required">
+			<option value="hombre">Hombre</option>
+			<option value="mujer">Mujer</option>
+		</select><br><br>
+        Premium<input id="premium" type="checkbox">
+    </form><br>
+
+    <button onclick="send();">Enviar</button>
+
+    <br><br><br>
+    <h2 id="estado"></h2>
+
+		<script type="text/javascript">
+
+            /***  FUNCION PARA ENVIAR LOS DATOS ***/
+			function send () {
+				var socio = {};
+				
+				socio.id = document.getElementById("id").value;
+				
+				socio.nombre = document.getElementById("nombre").value;
+				
+				socio.direccion = document.getElementById("direccion").value;
+	
+				var subjects = [];
+				for(i=0;i<document.getElementById("sexo").options.length;i++) {
+					if(document.getElementById("sexo").options[i].selected) {
+						subjects.push(document.getElementById("sexo").options[i].textContent);
+					}
+				}
+				socio.subjectList = subjects;
+	
+				if(document.getElementById("premium").checked) {
+					socio.premium = true;
+				} else {
+					socio.premium = false;
+				}
+				
+				var socioInfo = JSON.stringify(socio);
+				localStorage.setItem("socios",socioInfo);
+			}
+
+            
+		</script>
+</body>
+</html>

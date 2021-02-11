@@ -1,0 +1,25 @@
+Crear 3 ficheros.
+El A -> Simplemente creara una base de datos en indexDB que se llamara examen y dentro tendra un almacen llamado socios. Con un boton
+se crea y ya.
+
+El B -> Habra un formulario que enviara los datos al ficheroC.
+
+El C -> 
+-Recibe los parametros del ficheroB y los muestra.
+-Boton "CONFIRMA E INSERTAR" estara deshabilitado hasta que no reciba los datos. Si el id de socio ya existe mostara en ficheroB 
+que el registro se ha actualizado y si no existe pondra que se ha añadido. Pondra AÑADIDO o ACTUALIZADO.
+-Boton "VER SOCIOS DE LA BASE DE DATOS" estara habilitado desde el principio. Al pulsar mostrara una tabla inicialmente vacia con los dato
+de la base de datos.
+-Boton "HABILITAR JQUERY": Este boton se habilitara una vez se muestre la tabla. Hara lo siguiente
+.Click sobre una celda se pondra de color amarillo dicha celda.
+.Click sobre la primera celda de la columna, se eliminara dicha fila.
+.Cick sobre una cabecera, las celdas de la columna correspondiente se pondran de color azul.
+.Doble click sobre una celda del encabezado incial (id) todas las celdes vuelven a ponerse con color de fondo blanco.
+
+Puntuaciones:
+-Fichero A -> Crear la BD. 1p
+-Mandar los datos del fichero B y mostrarlos en el C. 2p
+-Añadir los datos a la bdd indexDB en el fichero C. 2p
+-Crear la tabla a partir de los datos de indexDB en el fichero C. 2p
+-Mostrar el tipo de operacoon realizada en el fichero B. 1p
+-Parte de JQUERY. 2p. 0,5 cada uno.

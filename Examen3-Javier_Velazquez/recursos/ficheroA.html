@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fichero A</title>
+</head>
+
+<body>
+    <h1>Examen3 - Parte A: Crear la base de datos</h1>
+    <hr>
+    <button onclick="crearBD();">Crear base de datos</button>
+
+
+    <script>
+
+        var peticion, bd, almacenSocios;
+
+        function crearBD() {
+            //identificacion, nombre y dir
+            if (window.indexedDB) {
+                peticion = window.indexedDB.open("examen", 1);
+
+                peticion.onsuccess = function (event) {
+                    bd = peticion.result;
+                    var transaccion = bd.transaction(bd.objectStoreNames, "readwrite");
+
+                    var almacenSocios = transaccion.objectStore("socios");
+                };
+
+
+                peticion.onerror = function (evento) {
+                    console.log("No se ha creado la base de datos: " + evento.target.errorCode);
+                };
+
+
+                peticion.onupgradeneeded = function (evento) {
+                    bd = peticion.result;
+                    var almacenSocios = bd.createObjectStore("socios", { keyPath: "id" });
+                };
+
+
+            } else {
+                console.log("IndexedDB no está soportado");
+            }
+        }
+    </script>
+</body>
+
+</html>
