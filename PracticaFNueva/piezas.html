@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Talleres Javier Velazquez</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="dist/css/coches.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Add some information about the album below, the author, or any other background
+              context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off
+              to some social networking sites or contact information.</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Follow on Twitter</a></li>
+              <li><a href="#" class="text-white">Like on Facebook</a></li>
+              <li><a href="#" class="text-white">Email me</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <strong>Album</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <div class="container">
+      <div class="row">
+        <!-- Elementos generados a partir del JSON -->
+        <main id="items" class="col-sm-8 row"></main>
+        <!-- Carrito -->
+        <aside class="col-sm-4">
+          <h2>Carrito</h2>
+          <!-- Elementos del carrito -->
+          <ul id="carrito" class="list-group"></ul>
+          <hr>
+          <!-- Precio total -->
+          <p class="text-right">Total: <span id="total"></span>&euro;</p>
+          <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+        </aside>
+      </div>
+    </div>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <!--PRIMERA FILA-->
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/aceite 1.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text" id="nombrePieza">Catrol Edge 5w40</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="añadirCarrito();">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">34,95€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/aceite 2.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Aceite Krafft 50w30</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary quitar-carrito">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">32,85€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/aceite 3.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Aceite Repsol 50w30</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">38,95€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/aceite 4.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Aceite Power-one 50w30</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">28,00€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/aceite 5.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Aceite Quartz 10w40</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">41,99€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/aceite 6.png"
+                style="height: 125px; width: 110px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Aceite Mobil 50w30</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">23,87€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--SEGUNDA FILA-->
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/filtroaire1.png"
+                style="height: 125px; width: 130px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">BOSCH Filtro de aire para coche</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">12,60€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/liquFrenos1.png"
+                style="height: 125px; width: 80px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">MOTUL Líquido de frenos </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">14,98/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/liquFrenos2.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">VALEO Líquido de frenos </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">12,95€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/liquFrenos3.png"
+                style="height: 125px; width: 130px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Castrol React Perfomance Dot4 L.frenos</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">18,50€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/anticong1.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">MOTUL G2 Anticongelante</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">14,20€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/anticong2.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">krafft 82255 Anticongelante</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">12,95€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--TERCERA FILA-->
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/bateria1.png"
+                style="height: 125px; width: 140px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Bateria 95 Ah +Dcha</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">73,49€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/bateria2.png"
+                style="height: 125px; width: 110px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Batería Bosch 45Ah S3 002</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">128,29€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzPos1.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Luz de posicion Philips W5W</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">1,80€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzPos2.png"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Luz de Posicion Osram</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">6,84€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzCruce1.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Luz de Cruce Philips 12972 Premium</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">5,12€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzCruce2.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Luz de Cruce Philips 12972XV</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">20,92€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--CUARTA FILA-->
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzNieblaDel1.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Antinieblas Del. Philips ✕ H11</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">18,34€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzNieblaDel2.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Antinieblas Del. Philips ✕ WHITEVISION</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">12,10€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzTrasera1.jpg"
+                style="height: 125px; width: 140px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Luz trasera / de freno Philips</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">3,80€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzMAtras.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Lampara de marcha atrás HELLA</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">5,85€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzIntermint1.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Lámpara intermitente BOSCH</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">1,61€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/luzIntermint2.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Bombillas PY21W BOSCH</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">6,95€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--QUINTA FILA-->
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/limpias1.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Limpiaparabrisas BOSCH 3 397 007 295</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">16,07€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/limpias2.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Limpiaparabrisas BOSCH 3 397 118 564</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">18,10€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/parasol.jpg"
+                style="height: 125px; width: 140px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Parasol forrado con aluminio</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">1,16€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/manosLibres1.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">LENCENT Transmisor FM Bluetooth</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">12,74€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/manosLibres2.jpg"
+                style="height: 125px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Kit manos libres AUTO-T 540328</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">26,56€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="imagenes/piezas/cargador.jpg"
+                style="height: 100px; width: 100px; margin-left: auto; margin-right: auto;" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Beikell cargador USB de Doble Puerto</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito">+</button>
+                  </div>
+                  <small class="text-muted">En Stock</small>
+                </div>
+                <div>
+                  <p style="padding-top: 10px; margin-bottom: 0;">6,59€/ud</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+      <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting
+          started guide</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="dist/js/jquery-slim.min.js"><\/script>')</script>
+  <script src="dist/js/popper.min.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+  <script src="dist/js/holder.min.js"></script>
+
+
+</body>
+
+</html>
