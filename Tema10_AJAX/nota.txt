@@ -1,0 +1,1 @@
+A partir del 8 no he cambiado las conexiones a la bdd
