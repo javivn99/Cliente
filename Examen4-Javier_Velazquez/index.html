@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="jsPDF/jspdf.js"></script>
+    <title>Examen 4</title>
+    <style>
+        #contenido {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1>Examen 4 Javier Velazquez</h1>
+        <hr><br>
+        Precio minimo<br><input id="preciomin" type="number">
+        <br><br>
+        Precio maximo<br><input id="preciomax" type="number">
+        <br><br>
+    </form>
+
+    <button onclick="realizarPeticion();">Cargar</button><br><br>
+
+    <button onclick="crearPDF();">Crear pdf</button>
+    <button>Eliminar libro seleccionado</button><br><br>
+    <div id="contenido"></div>
+
+    <!--<input type="" id="X" value="X" name="seleccion">-->
+
+
+
+    <script>
+			function procesarDatos(_libros) {
+				var cadenaHTML = "";
+
+				_libros.forEach(function (_elemento) {
+					if(_elemento.hasOwnProperty("titulo"))
+						cadenaHTML +=  "<input type='radio' id='"+ _elemento.isbn +"' name='seleccion' value='" + _elemento.isbn + "'>" + _elemento.titulo + "<br />";
+				});
+
+				document.getElementById("contenido").innerHTML = cadenaHTML;
+			}
+
+			function realizarPeticion() {
+				var peticion;
+
+				//PASO 2: Creación del objeto XMLHttpRequest
+				if(window.XMLHttpRequest) {
+					peticion = new XMLHttpRequest();
+				} else if(window.ActiveXObject) {
+					peticion = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+
+				//PASO 3: Realizar la petición al servidor
+				peticion.open('GET','examen1.php',true);
+  				peticion.send(null);
+
+  				//PASO 4: Gestionar la respuesta (en este caso con una función anónima)
+  				peticion.onreadystatechange = function (evento) {
+					if((peticion.readyState == 4) && ((peticion.status == 200) )){
+
+						var libros = JSON.parse(peticion.responseText);
+						procesarDatos(libros);
+					}
+  				};
+			}
+
+    </script>
+</body>
+
+</html>
