@@ -180,3 +180,8 @@ function insertarElementoControlLista(pieza) {
         }
     }
 }
+
+
+
+/****************************************************/
+

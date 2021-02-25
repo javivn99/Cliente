@@ -1,8 +1,8 @@
 <?php
 	$servername = "localhost";
 	$dbName = "interfaces";
-	$username = "profesor";
-	$password = "profesor";
+	$username = "javier";
+	$password = "root";
 
 	try {
 		mysql_set_charset('utf8');
