@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio A</title>
+    <script src="jquery-3.5.1.js"></script>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ejercicio A - Javier Velazquez</h1>
+    <hr>
+
+    DNI:<br><input type="text" id="dni"><br><br>
+
+    Nombre:<br><input type="text" id="nombre"><br><br>
+
+    Telefono:<br><input type="text" id="telefono"><br><br>
+
+    Matricula:<br><input type="text" id="matricula"><br><br>
+
+    <button id="btn_enviar" onclick="send();">Enviar</button>
+    <button id="btn_almacenar">Almacenar</button>
+    <br><br>
+    <table id="datos">
+        <tbody id="bodydatos">
+            <tr>
+                <td>DNI</td>
+                <td>Nombre</td>
+                <td>Telefono</td>
+                <td>Matricula</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+
+        /***  FUNCION PARA ENVIAR LOS DATOS ***/
+        function send() {
+            var datos = {};
+
+            datos.dni = document.getElementById("dni").value;
+
+            datos.nombre = document.getElementById("nombre").value;
+
+            datos.telefono = document.getElementById("telefono").value;
+
+            datos.matricula = document.getElementById("matricula").value;
+
+            var datosInfo = JSON.stringify(datos);
+            localStorage.setItem("datos", datosInfo);
+        }
+
+        //AÑADIR DATOS A LA TABLA
+        $(function () {
+            $("#btn_almacenar").click(function () {
+                var dni = $("#dni").val();
+                var nombre = $("#nombre").val();
+                var telefono = $("#telefono").val();
+                var matricula = $("#matricula").val();
+
+                $("#dni").val("");
+                $("#nombre").val("");
+                $("#telefono").val("");
+                $("#matricula").val("");
+
+                var stringHTML = "";
+                stringHTML += "<td>" + dni + "</td>";
+                stringHTML += "<td>" + nombre + "</td>";
+                stringHTML += "<td>" + telefono + "</td>";
+                stringHTML += "<td>" + matricula + "</td>";
+                $("#datos > tbody").append("<tr>" + stringHTML + "</tr>");
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

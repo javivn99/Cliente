@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio B</title>
+    <style>
+        div {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        span {
+            color: red;
+        }
+
+        #marca {
+            font-size: 40px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ejercicio A - Javier Velazquez</h1>
+    <hr>
+
+    <span id="marca" draggable="true" ondragstart="fase1(event);">X</span>
+    <br><br>
+
+    <div id="divDNI" ondragover="fase2(event);" ondrop="fase3(event);">
+        DNI:<span id="dni"></span>
+    </div>
+
+    <div id="divNombre" ondragover="fase2(event);" ondrop="fase3(event);">
+        Nombre:<span id="nombre"></span>
+    </div>
+
+    <div id="divTelefono" ondragover="fase2(event);" ondrop="fase3(event);">
+        Telefono:<span id="telefono"></span>
+    </div>
+
+    <div id="divMatricula" ondragover="fase2(event);" ondrop="fase3(event);">
+        Matricula:<span id="matricula"></span>
+    </div>
+
+
+    <br><br>
+    <input type="radio" name="opcion" id="automatico" onclick="validacionAutomatica();">Automatica
+    <br>
+    <input type="radio" name="opcion" id="manual" onclick="validacionManual();">Manual
+    <br><br>
+    <button>Validar</button>
+
+    <script type="text/javascript">
+
+        //FUNCION VISUALIZAR DATOS INTRODUCIDOS EN EL FORMULARIO DEL FICHERO_B
+        window.addEventListener("storage", function (event) {
+            //botonAdd.removeAttribute("disabled");
+            var datosJSON = localStorage.getItem("datos");
+            var datos = JSON.parse(datosJSON);
+
+            document.getElementById("dni").innerHTML = datos.dni;
+
+            document.getElementById("nombre").innerHTML = datos.nombre;
+
+            document.getElementById("telefono").innerHTML = datos.telefono;
+
+            document.getElementById("matricula").innerHTML = datos.matricula;
+        });
+
+        //VALIDACIONES
+
+        function validacionAutomatica() {
+
+            if (document.getElementById("automatico").checked) {
+
+                //DNI
+                var dniExpr = /^\d{8}[a-zA-Z]$/;
+                var dni = document.getElementById("dni").textContent;
+                dniExpr.test(dni) ? console.log("BIEN") : document.getElementById("divDNI").style.background = "yellow";
+
+                //NOMBRE
+                var nombreExpr = /^[A-Z]{1}[a-z]+|[A-Z]{1}[a-z]+\s[A-Z]{1}[a-z]+$/;
+                var nombre = document.getElementById("nombre").textContent;
+                nombreExpr.test(nombre) ? console.log("BIEN") : document.getElementById("divNombre").style.background = "yellow";
+
+                //TELÉFONO
+                var telefonoExpr = /^(679)[0-9]{8}$/;
+                var telefono = document.getElementById("telefono").textContent;
+                telefonoExpr.test(telefono) ? console.log("BIEN") : document.getElementById("divTelefono").style.background = "yellow";
+
+                //MATRÍCULA NUEVA
+                var matriculaExpr = /^[0-9]{4}[B-DF-HJ-NP-TV-Z]{3}$/;
+                var matricula = document.getElementById("matricula").textContent;
+                matriculaExpr.test(matricula) ? console.log("BIEN") : document.getElementById("divMatricula").style.background = "yellow";
+            }
+        }
+
+        //DRAGGABLES
+        function fase1(ev) {
+            ev.dataTransfer.setData("", ev.target.id);
+        }
+
+        function fase2(ev) {
+            ev.preventDefault();
+        }
+
+        function fase3(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("");
+            document.getElementById("span").innerHTML = data;
+        }
+
+        function validacionManual() {
+
+            if (document.getElementById("manual").checked) {
+
+                document.getElementById("divDNI").style.background = "white";
+                document.getElementById("divNombre").style.background = "white";
+                document.getElementById("divTelefono").style.background = "white";
+                document.getElementById("divMatricula").style.background = "white";
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

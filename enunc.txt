@@ -1,0 +1,9 @@
+PUNTUACIONES:
+Enviar datos de A a B -> 1p
+Validacion auto -> 1,5p
+Validacion manual -> 1,5p
+Enviar la info de la validacionde B a A haciendo que el validado no pueda ser modificado -> 1,5
+Almacenar los datos validados en la tabla -> 1,5p
+Vaciar la tabla a los 5 segundos de contener 3 filas de datos -> 1p
+Introducir en la bdd indexeddb las tres filas de datos a los 5 segundos de contener 3 filas de datos -> 2p
+
