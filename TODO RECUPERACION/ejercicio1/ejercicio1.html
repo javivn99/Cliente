@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <style>
+        span{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultado de la suma</h1>
+    <hr>
+    <span id="resultado"></span>
+    <br><br>
+    <input type="radio" id="suma" name="opcion">Sumar
+    <br>
+    <input type="radio" id="multiplicacion" name="opcion">Multiplicar
+
+    <script>
+        window.addEventListener("storage", function (event) {
+            
+            var datosA = localStorage.getItem("A");
+            var datosB = localStorage.getItem("B");
+            var datosC = localStorage.getItem("C");
+
+            var resultado=0;
+
+            if (document.getElementById("suma").checked) {
+                resultado=0;
+                if(datosA!=null){
+                    resultado+=parseInt(datosA);
+                }
+                if(datosB!=null){
+                    resultado+=parseInt(datosB);
+                }
+                if(datosC!=null){
+                    resultado+=parseInt(datosC);
+                }
+            }
+
+            if (document.getElementById("multiplicacion").checked) {
+                resultado=1;
+                if(datosA!=null){
+                    resultado = resultado * parseInt(datosA);
+                }
+                if(datosB!=null){
+                    resultado = resultado * parseInt(datosB);
+                }
+                if(datosC!=null){
+                    resultado = resultado * parseInt(datosC);
+                }
+            }
+                       
+
+            document.getElementById("resultado").innerHTML = resultado;
+        });
+    </script>
+</body>
+</html>
