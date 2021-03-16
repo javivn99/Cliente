@@ -16,7 +16,12 @@ persona1.nombreyedad = function () {
 //MÉTODO 1 --> for..in
 console.log("MÉTODO 1  --> for..in");
 for(let x in persona1) {
-    console.log(x + " - " + persona1[x]);
+    if(x!="nombreyedad"){
+        console.log(x + " - " + persona1[x]);
+    } else {
+        console.log(persona1[x]());
+        //console.log(persona1.nombreyedad()); Igual que la de arriba. Forma de ejecutar funciones con la x.
+    }
 }
 
 
@@ -28,6 +33,7 @@ propiedades.forEach(x => console.log(" --> " + persona1[x]));
 
 
 //MÉTODO 3 --> Object.getOwnPropertyNames(o) --> Devuelve el array de propiedades
+//Diferencia con Object.Keys -> Este devuelve todas las propiedades, numerables y no numerables.
 console.log("\n\nMÉTODO 3 --> Object.getOwnPropertyNames(o)");
 var propiedades2 = Object.getOwnPropertyNames(persona1);
 console.log(propiedades2);
