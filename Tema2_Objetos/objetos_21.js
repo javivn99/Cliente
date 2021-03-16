@@ -11,6 +11,11 @@ function* generador1() {
     yield: Es una especia de return que para y reanuda la llamada almacenando el nuevo valor.
     Sirve para pausar y reanudar una funcion generadora. Solo se usa con funciones asterisco.
 */
+/********************************/
+/*
+    La declaración function* (la palabra clave function seguida de un asterisco) define una función generadora, que devuelve un objeto Generator.
+    También puedes definir funciones generadoras usando el constructor GeneratorFunction y una function* expression.
+*/
 
 console.log("EJEMPLO1 -- CUENTA HASTA 3");
 var gen = generador1();
